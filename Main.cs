@@ -1,6 +1,8 @@
-﻿using CounterStrikeSharp.API.Core;
+﻿using System.Runtime.CompilerServices;
+using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Admin;
+using CounterStrikeSharp.API.Modules.Commands;
 using IksAdminApi;
 
 namespace AdminsConvert;
@@ -11,49 +13,59 @@ public class Main : AdminModule
     public override string ModuleVersion => "1.0.0";
     public override string ModuleAuthor => "iks__";
     public override string ModuleDescription => "for IksAdmin 3.0";
+    public static BasePlugin Instance = null!;
 
     Dictionary<CCSPlayerController, List<string>> _deleteFlags = new();
     Dictionary<CCSPlayerController, uint> _defaultImmunities = new();
-
     public override void Ready()
     {
+        Instance = this;
         Api.OnFullConnect += OnFullConnect;
         PluginConfig.Set();
     }
 
+    public override void Unload(bool hotReload)
+    {
+        Api.OnFullConnect -= OnFullConnect;
+    }
+
     private void OnFullConnect(string steamId, string ip)
     {
-        var player = PlayersUtils.GetControllerBySteamId(steamId);
-        if (player == null) return;
+        AddTimer(10, () => {
+            var player = PlayersUtils.GetControllerBySteamId(steamId);
+            if (player == null) return;
 
-        var admin = player.Admin();
-        if (admin == null) return;
-        if (PluginConfig.Config.ConvertImmunity)
-        {
-            _defaultImmunities.Add(player, AdminManager.GetPlayerImmunity(player));
-            AdminManager.SetPlayerImmunity(player, (uint)admin.CurrentImmunity);
-        }
-        if (PluginConfig.Config.ConvertGroup && admin.Group != null)
-        {
-            AdminManager.AddPlayerToGroup(player, [$"#css/{admin.Group.Name}"]);
-        }
-        foreach (var item in PluginConfig.Config.FlagsConvert)
-        {
-            var flag = item.Key;
-            var cssFlags = item.Value;
-            if (admin.CurrentFlags.Contains(flag))
+            var admin = player.Admin();
+            if (admin == null) return;
+            if (PluginConfig.Config.ConvertImmunity)
             {
-                AdminManager.AddPlayerPermissions(player, cssFlags);
-                if (!_deleteFlags.ContainsKey(player))
-                    _deleteFlags.Add(player, cssFlags.ToList());
-                else {
-                    foreach (var f in cssFlags)
-                    {
-                        _deleteFlags[player].Add(f);
+                _defaultImmunities.Add(player, AdminManager.GetPlayerImmunity(player));
+                AdminManager.SetPlayerImmunity(player, (uint)admin.CurrentImmunity);
+            }
+            if (PluginConfig.Config.ConvertGroup && admin.Group != null)
+            {
+                AdminManager.AddPlayerToGroup(player, [$"#css/{admin.Group.Name}"]);
+            }
+            foreach (var item in PluginConfig.Config.FlagsConvert)
+            {
+                var flag = item.Key;
+                var cssFlags = item.Value;
+                if (admin.CurrentFlags.Contains(flag))
+                {
+                    AdminUtils.LogDebug(cssFlags.ToString()!);
+                    AdminManager.AddPlayerPermissions(player, cssFlags);
+                    if (!_deleteFlags.ContainsKey(player))
+                        _deleteFlags.Add(player, cssFlags.ToList());
+                    else {
+                        foreach (var f in cssFlags)
+                        {
+                            _deleteFlags[player].Add(f);
+                        }
                     }
-                }
-            }   
-        }
+                }   
+            }
+        });
+        
     }
 
     [GameEventHandler]

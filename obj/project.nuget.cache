@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UzbqWjB87TA=",
+  "dgSpecHash": "xX810ZOQwyM=",
   "success": true,
-  "projectFilePath": "E:\\_pluginsWork\\FlagsConvert\\FlagsConvert.csproj",
+  "projectFilePath": "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\iks\\.nuget\\packages\\counterstrikesharp.api\\1.0.300\\counterstrikesharp.api.1.0.300.nupkg.sha512",
     "C:\\Users\\iks\\.nuget\\packages\\mcmaster.netcore.plugins\\1.4.0\\mcmaster.netcore.plugins.1.4.0.nupkg.sha512",

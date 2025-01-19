@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\_pluginsWork\\FlagsConvert\\FlagsConvert.csproj": {}
+    "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj": {}
   },
   "projects": {
-    "E:\\_pluginsWork\\FlagsConvert\\FlagsConvert.csproj": {
+    "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_pluginsWork\\FlagsConvert\\FlagsConvert.csproj",
+        "projectUniqueName": "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj",
         "projectName": "FlagsConvert",
-        "projectPath": "E:\\_pluginsWork\\FlagsConvert\\FlagsConvert.csproj",
+        "projectPath": "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj",
         "packagesPath": "C:\\Users\\iks\\.nuget\\packages\\",
-        "outputPath": "E:\\_pluginsWork\\FlagsConvert\\obj\\",
+        "outputPath": "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\iks\\AppData\\Roaming\\NuGet\\NuGet.Config"

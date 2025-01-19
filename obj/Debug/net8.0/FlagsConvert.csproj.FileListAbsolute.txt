@@ -1,0 +1,15 @@
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\bin\Debug\net8.0\FlagsConvert.deps.json
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\bin\Debug\net8.0\FlagsConvert.dll
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\bin\Debug\net8.0\FlagsConvert.pdb
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\bin\Debug\net8.0\IksAdminApi.dll
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsConvert.csproj.AssemblyReference.cache
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsConvert.GeneratedMSBuildEditorConfig.editorconfig
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsConvert.AssemblyInfoInputs.cache
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsConvert.AssemblyInfo.cs
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsConvert.csproj.CoreCompileInputs.cache
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsConvert.sourcelink.json
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsCon.A39EF30C.Up2Date
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsConvert.dll
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\refint\FlagsConvert.dll
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsConvert.pdb
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\ref\FlagsConvert.dll

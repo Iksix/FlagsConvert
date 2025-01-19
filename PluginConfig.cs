@@ -22,7 +22,6 @@ public class PluginConfig : PluginCFG<PluginConfig>
 
     public static void Set()
     {
-        var path = Main.Api.ModuleDirectory + "/config.json";
-        Config = Config.ReadOrCreate(path, Config);
+        Config = Config.ReadOrCreate("configs/convert_flags", Config);
     }
 }
