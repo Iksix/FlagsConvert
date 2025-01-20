@@ -13,8 +13,6 @@ public class Main : AdminModule
     public override string ModuleVersion => "1.0.0";
     public override string ModuleAuthor => "iks__";
     public override string ModuleDescription => "for IksAdmin 3.0";
-    public static BasePlugin Instance = null!;
-
     Dictionary<CCSPlayerController, List<string>> _deleteFlags = new();
     Dictionary<CCSPlayerController, uint> _defaultImmunities = new();
     public override void Ready()
