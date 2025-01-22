@@ -1,0 +1,19 @@
+{
+  "FlagsConvert": {
+    "z": [
+      "@css/root",
+      "@css/rcon"
+    ],
+    "b": [
+      "@css/ban"
+    ],
+    "m": [
+      "@css/mute"
+    ],
+    "g": [
+      "@css/gag"
+    ]
+  },
+  "ConvertImmunity": true,
+  "ConvertGroup": true
+}

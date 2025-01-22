@@ -2529,11 +2529,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj",
+      "projectUniqueName": "H:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj",
       "projectName": "FlagsConvert",
-      "projectPath": "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj",
+      "projectPath": "H:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\FlagsConvert.csproj",
       "packagesPath": "C:\\Users\\iks\\.nuget\\packages\\",
-      "outputPath": "E:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\obj\\",
+      "outputPath": "H:\\__iksAdmin\\IksAdmin_Modules\\FlagsConvert\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\iks\\AppData\\Roaming\\NuGet\\NuGet.Config"

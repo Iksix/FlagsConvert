@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlagsConvert")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d62f8900c5c36a5799cc5a1b7f6a56df70b75341")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d98d4c0fe1888b8a945da828823134b6e6fc52d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlagsConvert")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlagsConvert")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
