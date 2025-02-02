@@ -29,3 +29,4 @@ H:\__iksAdmin\IksAdmin_Modules\FlagsConvert\bin\Debug\net8.0\IksAdminApi.dll
 H:\__iksAdmin\IksAdmin_Modules\FlagsConvert\bin\Debug\net8.0\IksAdminApi.pdb
 H:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\FlagsCon.A39EF30C.Up2Date
 H:\__iksAdmin\IksAdmin_Modules\FlagsConvert\obj\Debug\net8.0\ref\FlagsConvert.dll
+E:\__iksAdmin\IksAdmin_Modules\FlagsConvert\bin\Debug\net8.0\IksAdminApi.pdb

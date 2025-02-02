@@ -30,19 +30,23 @@ public class Main : AdminModule
     private void OnFullConnect(string steamId, string ip)
     {
         AddTimer(10, () => {
+            AdminUtils.LogDebug("1");
             var player = PlayersUtils.GetControllerBySteamId(steamId);
             if (player == null) return;
-
+            AdminUtils.LogDebug("2");
             var admin = player.Admin();
             if (admin == null) return;
+            AdminUtils.LogDebug("3");
             if (PluginConfig.Config.ConvertImmunity)
             {
                 _defaultImmunities.Add(player, AdminManager.GetPlayerImmunity(player));
+                AdminUtils.LogDebug("4");
                 AdminManager.SetPlayerImmunity(player, (uint)admin.CurrentImmunity);
             }
             if (PluginConfig.Config.ConvertGroup && admin.Group != null)
             {
                 AdminManager.AddPlayerToGroup(player, [$"#css/{admin.Group.Name}"]);
+                AdminUtils.LogDebug("5");
             }
             foreach (var item in PluginConfig.Config.FlagsConvert)
             {
@@ -62,6 +66,8 @@ public class Main : AdminModule
                     }
                 }   
             }
+            AdminUtils.LogDebug("Immunity:" + AdminManager.GetPlayerImmunity(player).ToString());
+            AdminUtils.LogDebug("Flags:" + AdminManager.GetPlayerAdminData(player)!.Flags.Values.ToString());
         });
         
     }
