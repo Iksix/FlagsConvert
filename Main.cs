@@ -18,60 +18,48 @@ public class Main : AdminModule
     public override void Ready()
     {
         Instance = this;
-        Api.OnFullConnect += OnFullConnect;
         PluginConfig.Set();
     }
 
-    public override void Unload(bool hotReload)
+    [GameEventHandler]
+    public HookResult OnPlayerConnectFull(EventPlayerConnectFull @event, GameEventInfo info)
     {
-        Api.OnFullConnect -= OnFullConnect;
-    }
-
-    private void OnFullConnect(string steamId, string ip)
-    {
-        AddTimer(10, () => {
-            AdminUtils.LogDebug("1");
-            var player = PlayersUtils.GetControllerBySteamId(steamId);
-            if (player == null) return;
-            AdminUtils.LogDebug("2");
-            var admin = player.Admin();
-            if (admin == null) return;
-            AdminUtils.LogDebug("3");
-            if (PluginConfig.Config.ConvertImmunity)
+        var player = @event.Userid;
+        if (player == null || player.AuthorizedSteamID == null) return HookResult.Continue;
+        var admin = player.Admin();
+        if (admin == null) return HookResult.Continue;
+        if (PluginConfig.Config.ConvertImmunity)
+        {
+            _defaultImmunities.Add(player, AdminManager.GetPlayerImmunity(player));
+            AdminManager.SetPlayerImmunity(player, (uint)admin.CurrentImmunity);
+        }
+        if (PluginConfig.Config.ConvertGroup && admin.Group != null)
+        {
+            AdminManager.AddPlayerToGroup(player, [$"#css/{admin.Group.Name}"]);
+        }
+        foreach (var item in PluginConfig.Config.FlagsConvert)
+        {
+            var flag = item.Key;
+            var cssFlags = item.Value;
+            if (admin.CurrentFlags.Contains(flag))
             {
-                _defaultImmunities.Add(player, AdminManager.GetPlayerImmunity(player));
-                AdminUtils.LogDebug("4");
-                AdminManager.SetPlayerImmunity(player, (uint)admin.CurrentImmunity);
-            }
-            if (PluginConfig.Config.ConvertGroup && admin.Group != null)
-            {
-                AdminManager.AddPlayerToGroup(player, [$"#css/{admin.Group.Name}"]);
-                AdminUtils.LogDebug("5");
-            }
-            foreach (var item in PluginConfig.Config.FlagsConvert)
-            {
-                var flag = item.Key;
-                var cssFlags = item.Value;
-                if (admin.CurrentFlags.Contains(flag))
-                {
-                    AdminUtils.LogDebug(cssFlags.ToString()!);
-                    AdminManager.AddPlayerPermissions(player, cssFlags);
-                    if (!_deleteFlags.ContainsKey(player))
-                        _deleteFlags.Add(player, cssFlags.ToList());
-                    else {
-                        foreach (var f in cssFlags)
-                        {
-                            _deleteFlags[player].Add(f);
-                        }
+                AdminUtils.LogDebug(cssFlags.ToString()!);
+                AdminManager.AddPlayerPermissions(player, cssFlags);
+                if (!_deleteFlags.ContainsKey(player))
+                    _deleteFlags.Add(player, cssFlags.ToList());
+                else {
+                    foreach (var f in cssFlags)
+                    {
+                        _deleteFlags[player].Add(f);
                     }
-                }   
-            }
-            AdminUtils.LogDebug("Immunity:" + AdminManager.GetPlayerImmunity(player).ToString());
-            AdminUtils.LogDebug("Flags:" + AdminManager.GetPlayerAdminData(player)!.Flags.Values.ToString());
-        });
-        
+                }
+            }   
+        }
+        AdminUtils.LogDebug("Immunity:" + AdminManager.GetPlayerImmunity(player).ToString());
+        AdminUtils.LogDebug("Flags:" + AdminManager.GetPlayerAdminData(player)!.Flags.Values.ToString());
+        return HookResult.Continue;
     }
-
+    
     [GameEventHandler]
     public HookResult OnPlayerDisconnect(EventPlayerDisconnect @event, GameEventInfo info)
     {
